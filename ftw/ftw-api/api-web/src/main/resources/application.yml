@@ -55,8 +55,8 @@ spring:
         timeout: 0
 
 swagger:
-  title: 名师工作站接口服务
-  description: 名师工作站接口服务
+  title: 测试用户接口服务
+  description: 测试用户接口服务
   path: com.api.controller
   version: v1.0
   service:
