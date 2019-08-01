@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>名师工作站</title>
+    <link rel="stylesheet" href="/css/menu.css"/>
+    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/layer.css"/>
+    <script src="https://cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.5.17/vue.min.js"></script>
+</head>
+<body>
+
+<div class="navBar">
+    <img class="ftw-title" src="/images/ftw.png"></img>
+    <div class="topuser">
+        <a><img src="/images/center.png" class="welcome"/>欢迎您： <span th:text="${{realName}}"></span></a>
+        <a href="/logOut"><img src="/images/shutdown.png" class="shutdown"/>退出</a>
+        <a href="#" onclick="modifyPws()">修改密码</a>
+    </div>
+</div>
+
+<div id="nav">
+    <ul>
+        <li v-for="item in items">
+            <h2 @click="showToggle(item, items)">
+                {{ item.name }}
+                <span v-if="item.isSubshow" class="icon_arrow"></span>
+                <span v-else class="icon_arrow_clicked"></span>
+            </h2>
+            <div v-if="item.isSubshow" id="subshow">
+                <ul v-for="subItem in item.subItems">
+                    <li @click="jumpToUrl(subItem.toUrl)">{{ subItem.name }}</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<iframe id="iframeSrc" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"  allowtransparency="yes"></iframe>
+
+<script src="/js/layer.js"></script>
+<script src="/viewjs/login/home.js"></script>
+<script type="text/javascript">
+    $('#iframeSrc').attr('width', $('body').width() - $('#nav').width()-20);
+    var ifr = document.getElementById('iframeSrc');
+    ifr.onload = function () 
+    {
+        window.setTimeout("reinitIframe()", 500);
+    }
+    function reinitIframe()
+    {
+        var iframe = document.getElementById("iframeSrc");
+        try
+        {
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        }catch (ex){}
+    }
+    function modifyPws() 
+    {
+        $("#iframeSrc").attr("src", "/user/showChangePassword");
+    }
+
+</script>
+</body>
+</html>

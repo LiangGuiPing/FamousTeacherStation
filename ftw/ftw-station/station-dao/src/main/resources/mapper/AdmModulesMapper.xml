@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ftw.dao.adm.AdmModulesDAO">
+  <resultMap id="BaseResultMap" type="com.ftw.entity.adm.AdmModules">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="platformId" jdbcType="INTEGER" property="platformid" />
+    <result column="moduleName" jdbcType="VARCHAR" property="modulename" />
+    <result column="parentId" jdbcType="INTEGER" property="parentid" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="visitUrl" jdbcType="VARCHAR" property="visiturl" />
+    <result column="displaySort" jdbcType="INTEGER" property="displaysort" />
+    <result column="isDisplay" jdbcType="INTEGER" property="isdisplay" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, platformId, moduleName, parentId, createTime, remark, visitUrl, displaySort, 
+    isDisplay
+  </sql>
+  <select id="selectByExample" parameterType="com.ftw.entity.adm.AdmModulesExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from adm_modules
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from adm_modules
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from adm_modules
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ftw.entity.adm.AdmModulesExample">
+    delete from adm_modules
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ftw.entity.adm.AdmModules">
+    insert into adm_modules (id, platformId, moduleName, 
+      parentId, createTime, remark, 
+      visitUrl, displaySort, isDisplay
+      )
+    values (#{id,jdbcType=INTEGER}, #{platformid,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{visiturl,jdbcType=VARCHAR}, #{displaysort,jdbcType=INTEGER}, #{isdisplay,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ftw.entity.adm.AdmModules">
+    insert into adm_modules
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="platformid != null">
+        platformId,
+      </if>
+      <if test="modulename != null">
+        moduleName,
+      </if>
+      <if test="parentid != null">
+        parentId,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="visiturl != null">
+        visitUrl,
+      </if>
+      <if test="displaysort != null">
+        displaySort,
+      </if>
+      <if test="isdisplay != null">
+        isDisplay,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="platformid != null">
+        #{platformid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="visiturl != null">
+        #{visiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="displaysort != null">
+        #{displaysort,jdbcType=INTEGER},
+      </if>
+      <if test="isdisplay != null">
+        #{isdisplay,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ftw.entity.adm.AdmModulesExample" resultType="java.lang.Long">
+    select count(*) from adm_modules
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update adm_modules
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.platformid != null">
+        platformId = #{record.platformid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modulename != null">
+        moduleName = #{record.modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentid != null">
+        parentId = #{record.parentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.visiturl != null">
+        visitUrl = #{record.visiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.displaysort != null">
+        displaySort = #{record.displaysort,jdbcType=INTEGER},
+      </if>
+      <if test="record.isdisplay != null">
+        isDisplay = #{record.isdisplay,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update adm_modules
+    set id = #{record.id,jdbcType=INTEGER},
+      platformId = #{record.platformid,jdbcType=INTEGER},
+      moduleName = #{record.modulename,jdbcType=VARCHAR},
+      parentId = #{record.parentid,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      visitUrl = #{record.visiturl,jdbcType=VARCHAR},
+      displaySort = #{record.displaysort,jdbcType=INTEGER},
+      isDisplay = #{record.isdisplay,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ftw.entity.adm.AdmModules">
+    update adm_modules
+    <set>
+      <if test="platformid != null">
+        platformId = #{platformid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        moduleName = #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        parentId = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="visiturl != null">
+        visitUrl = #{visiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="displaysort != null">
+        displaySort = #{displaysort,jdbcType=INTEGER},
+      </if>
+      <if test="isdisplay != null">
+        isDisplay = #{isdisplay,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ftw.entity.adm.AdmModules">
+    update adm_modules
+    set platformId = #{platformid,jdbcType=INTEGER},
+      moduleName = #{modulename,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      visitUrl = #{visiturl,jdbcType=VARCHAR},
+      displaySort = #{displaysort,jdbcType=INTEGER},
+      isDisplay = #{isdisplay,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

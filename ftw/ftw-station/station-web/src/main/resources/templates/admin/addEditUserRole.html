@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>名师工作站</title>
+    <link rel="stylesheet" href="/css/boostrap.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="/css/layer.css" />
+    <link rel="stylesheet" href="/css/modules.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+    <script src="https://cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.5.17/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.22.2/locale/zh-cn.js"></script>
+    <script src="https://cdn.staticfile.org/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/tools.js"></script>
+    <script src="/js/pagervue.js"></script>
+    <script src="/js/layer.js"></script>
+    <script src="/plugins/laydate/laydate.js"></script>
+</head>
+<body>
+
+<div class="main-container" id="vueapp">
+    <div class="home">
+        <ul class="home-list">
+            <li>管理员模块</li>
+            <li><i class="glyphicon glyphicon-menu-right"></i>用户管理</li>
+            <li><i class="glyphicon glyphicon-menu-right"></i>分配角色</li>
+        </ul>
+    </div>
+    <div class="main-cont">
+        <form class="form-horizontal" method="POST" id="form3">
+            <table class="table table-bordered">
+                <tbody>
+                <tr th:each="item:${admAllRoles}">
+                    <td>
+                        <!--<div class="form-group"  th:each="item:${admAllRoles}" >-->
+                        <!--<label class="col-sm-2 control-label">-->
+                        <input type="checkbox" th:checked="${item.flag} == 1" th:value="${item.id}"
+                               th:text="${item.rolename}" name="roleIdL"
+                               style="text-align: center;float:left;width:60%"/>
+                        <!--</label>-->
+                        <!--</div>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-6" style="text-align: center">
+                    <!--<th:block th:if="${admAllRoles} != null" >-->
+                    <button type="submit" class="btn btn-primary" datatype="1">保存</button>
+                    <!--</th:block>-->
+                    <a class="btn btn-default" href="/user/list">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<script type="application/javascript" th:inline="javascript">
+    var admAllRoles = [[${admAllRoles}]];
+    var userId = [[${userId}]];
+
+</script>
+<script src="/viewjs/login/adduserrole.js"></script>
+
+</body>
+</html>

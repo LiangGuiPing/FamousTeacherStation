@@ -1,0 +1,106 @@
+.main-container .home .home-list li .icon-home {
+    font-size: 13px;
+    margin-right: 10px;
+    color: #2f3f56;
+}
+
+.table-responsive{
+	margin-top:10px;
+}
+.main-container .main-cont {
+    background: #fff;
+    margin: 0;
+    padding: 15px 20px 24px;
+}
+
+.main-container {
+    margin-left: 0px;
+    margin-right: 0;
+    margin-top: 0px;
+    min-height: 100%;
+    padding: 0;
+    z-index: 1;
+}
+.msearch {
+	margin-left:10px;
+}
+.addbtn{
+	margin-left:-5px;
+}
+
+.glyphicon-menu-right{
+	font-size:12px;
+	margin-right: 5px;
+}
+.form-control{
+	width:95%;
+}
+.form-horizontal{
+	margin-top:15px;
+}
+
+.col-md-offset-2{
+	margin-top:15px;
+}
+.btn-default {
+	margin-left: 5px;
+}
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+    color: red;
+}
+
+.expiretime-tips {
+	float:left;height:30px;line-height:30px;color:red;display:none;
+}
+
+.the-second-module {
+	float:left;
+	margin-left:10px;
+}
+.the-second-module input {
+	position: relative;
+	top:2px;
+}
+
+.mask-div-gray{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(232,232,232,0.2);
+	z-index: 1000;
+	display: none;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  background-color: #5bc0de;
+  margin: 100px auto;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+  z-index:10001;
+  margin-top: -20%;  
+  display: none;
+}
+ 
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+ 
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+

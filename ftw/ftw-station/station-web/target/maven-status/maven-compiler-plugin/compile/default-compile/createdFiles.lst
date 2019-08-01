@@ -1,0 +1,11 @@
+com\ftw\controller\adm\LoginController.class
+com\ftw\controller\adm\PermissionController.class
+com\ftw\controller\adm\RoleController.class
+com\ftw\config\MyAuthRealm.class
+com\ftw\config\MyUrlShiroFilter.class
+com\ftw\config\WebMvcConfigurerConfig.class
+com\ftw\controller\adm\ModuleController.class
+com\ftw\StationWebApplication.class
+com\ftw\controller\GetLoginSession.class
+com\ftw\config\SwaggerConfig.class
+com\ftw\controller\adm\AdmUserController.class

@@ -1,0 +1,8 @@
+com\ftw\dao\adm\AdmUsersModulesDAO.class
+com\ftw\dao\adm\AdmRolesDAO.class
+com\ftw\dao\adm\AdmPlatformDAO.class
+com\ftw\dao\adm\AdmPermissionDAO.class
+com\ftw\dao\adm\AdmUsersDAO.class
+com\ftw\dao\adm\AdmModulesDAO.class
+com\ftw\dao\adm\AdmUserRoleDAO.class
+com\ftw\dao\adm\AdmSystemLogsDAO.class

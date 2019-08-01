@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ftw.dao.adm.AdmPermissionDAO">
+  <resultMap id="BaseResultMap" type="com.ftw.entity.adm.AdmPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roleId" jdbcType="INTEGER" property="roleid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, roleId, name,permissionDesc
+  </sql>
+  <select id="selectByExample" parameterType="com.ftw.entity.adm.AdmPermissionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from adm_permission
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from adm_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from adm_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ftw.entity.adm.AdmPermissionExample">
+    delete from adm_permission
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ftw.entity.adm.AdmPermission">
+    insert into adm_permission (id, roleId, name
+      )
+    values (#{id,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ftw.entity.adm.AdmPermission">
+    insert into adm_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleid != null">
+        roleId,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="permissionDesc != null">
+        permissionDesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionDesc != null">
+        #{permissionDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ftw.entity.adm.AdmPermissionExample" resultType="java.lang.Long">
+    select count(*) from adm_permission
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update adm_permission
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleid != null">
+        roleId = #{record.roleid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update adm_permission
+    set id = #{record.id,jdbcType=INTEGER},
+      roleId = #{record.roleid,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ftw.entity.adm.AdmPermission">
+    update adm_permission
+    <set>
+      <if test="roleid != null">
+        roleId = #{roleid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionDesc != null">
+        name = #{permissionDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ftw.entity.adm.AdmPermission">
+    update adm_permission
+    set roleId = #{roleid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR}
+      ,permissionDesc = #{permissionDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <!--permission list  and  count-->
+  <select id="getAllPermissions" parameterType="java.util.Map" resultType="java.util.HashMap">
+    SELECT tt.*,
+    IF(tt.roleId IS NOT null, (SELECT s.roleName FROM adm_roles s WHERE s.id = tt.roleId LIMIT 1), NULL) AS roleName
+    FROM
+    (
+    SELECT m.id AS  permissionId,
+    m.name AS permissionName,
+    m.roleId,
+    m.permissionDesc
+    FROM adm_permission m
+    ) tt  WHERE 1=1
+    <if test="permissionName != null">
+     AND  tt.permissionName LIKE '%${permissionName}%'
+    </if>
+    <if test="roleId != null">
+     AND  tt.roleId  = #{roleId}
+    </if>
+    ORDER BY tt.permissionId DESC
+    LIMIT #{pageStart}, #{pageSize}
+  </select>
+
+  <select id="getAllPermissionsSize" parameterType="java.util.Map" resultType="java.lang.Integer">
+    SELECT COUNT(*)
+    FROM
+    (
+    SELECT m.id AS  permissionId,
+    m.name AS permissionName,
+    m.roleId,
+    m.permissionDesc
+    FROM adm_permission m
+    ) tt   WHERE 1=1
+    <if test="permissionName != null">
+      AND  tt.permissionName LIKE '%${permissionName}%'
+    </if>
+    <if test="roleId != null">
+      AND  tt.roleId  = #{roleId}
+    </if>
+  </select>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ftw-api/api-dao/api-dao.iml" filepath="$PROJECT_DIR$/ftw-api/api-dao/api-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-api/api-entity/api-entity.iml" filepath="$PROJECT_DIR$/ftw-api/api-entity/api-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-api/api-service/api-service.iml" filepath="$PROJECT_DIR$/ftw-api/api-service/api-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-api/api-web/api-web.iml" filepath="$PROJECT_DIR$/ftw-api/api-web/api-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw.iml" filepath="$PROJECT_DIR$/ftw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-api/ftw-api.iml" filepath="$PROJECT_DIR$/ftw-api/ftw-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-common/ftw-common.iml" filepath="$PROJECT_DIR$/ftw-common/ftw-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-station/ftw-station.iml" filepath="$PROJECT_DIR$/ftw-station/ftw-station.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-swagger/ftw-swagger.iml" filepath="$PROJECT_DIR$/ftw-swagger/ftw-swagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-station/station-dao/station-dao.iml" filepath="$PROJECT_DIR$/ftw-station/station-dao/station-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-station/station-entity/station-entity.iml" filepath="$PROJECT_DIR$/ftw-station/station-entity/station-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-station/station-service/station-service.iml" filepath="$PROJECT_DIR$/ftw-station/station-service/station-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ftw-station/station-web/station-web.iml" filepath="$PROJECT_DIR$/ftw-station/station-web/station-web.iml" />
+    </modules>
+  </component>
+</project>

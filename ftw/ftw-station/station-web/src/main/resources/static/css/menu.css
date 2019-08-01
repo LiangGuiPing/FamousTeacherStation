@@ -1,0 +1,239 @@
+.navBar,.navBar h1 {
+    height: 70px;
+    line-height: 70px
+}
+
+.navBar .topmenu li a,.navBar h1 {
+    color: #fff
+}
+
+.ftw-title {
+    float: left;
+    color: #fff;
+    margin-left: 25px;
+    margin-top: 6px;
+    /*border: #ddd 1px solid;*/
+    /*border-radius: 50px;*/
+    /*border-bottom: none;*/
+    /*border-top: none;*/
+}
+.navBar {
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #2f3f56;
+    width: 100%;
+    z-index: 99
+}
+
+.navBar:after {
+    display: block;
+    content: '';
+    clear: both
+}
+
+.navBar h1 {
+    overflow: hidden;
+    font-size: 20px;
+    margin-left: 20px;
+    float: left
+}
+
+.navBar h1 img {
+    width: 105px;
+    height: 54px
+}
+
+.slider,.slider:before {
+    width: 190px;
+    background-color: #f2f2f2
+}
+
+.navBar .topmenu {
+    float: left;
+    margin-left: 150px;
+    z-index: 100;
+    font-size: 14px
+}
+
+.navBar .topmenu li {
+    display: inline;
+    margin-right: 30px
+}
+
+.navBar .topmenu li .dropdown-menu li {
+    margin: 0
+}
+
+.navBar .topmenu li .dropdown-menu a {
+    color: #555
+}
+
+.navBar .topuser {
+    float: right;
+    margin-right: 30px;
+    font-size: 15px;
+}
+
+.navBar .topuser .dropdown a {
+    color: #fff;
+    font-size: 16px
+}
+
+.navBar .topuser .dropdown .dropdown-menu a {
+    color: #555
+}
+
+.navBar .topmenu .dropdown-menu,.navBar .topuser .dropdown-menu {
+    min-width: 100px;
+    left: -20px
+}
+
+.slider {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    border: 1px solid #ccc;
+    border-width: 0 1px 0 0
+}
+
+.slider .nav-slider li .menu-child:before,.slider:before {
+    display: block;
+    top: 0;
+    bottom: 0;
+    content: ""
+}
+
+.slider:before {
+    position: fixed;
+    z-index: -1;
+    border: 1px solid #ccc;
+    border-width: 0 1px 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.slider:before li {
+    display: block;
+    position: relative;
+    float: none;
+    padding: 0;
+    border-style: solid;
+    border-width: 1px 0 0;
+    width: 180px
+}
+
+.slider .nav-slider li {
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #fcfcfc;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative
+}
+
+.slider .nav-slider li a {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 16px 0 15px;
+    position: relative;
+    color: #585858;
+    font-size: 14px
+}
+
+.slider .nav-slider li .menu-child {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5
+}
+
+.slider .nav-slider li .menu-child:before {
+    position: absolute;
+    z-index: 1;
+    left: 18px;
+    border: 1px dotted #9dbdd6;
+    border-width: 0 0 0 1px
+}
+
+.slider .nav-slider li .menu-child li:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 7px;
+    left: 20px;
+    top: 17px;
+    border-top: 1px dotted #9dbdd6
+}
+
+.slider .nav-slider li .menu-child li a {
+    display: block;
+    padding-left: 37px;
+    color: #585858
+}
+
+.slider .nav-slider li .menu-child li a:hover {
+    color: #438eb9
+}
+
+.slider .nav-slider li .menu-child .active a {
+    color: #4c8fbd
+}
+
+.slider .nav-slider li .menu-child .indent {
+    padding-left: 10px
+}
+
+.slider .nav-slider .active {
+    background: #fff
+}
+
+.slider .end {
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 3px 0;
+    position: relative;
+    color: #fff
+}
+
+.slider .end:before {
+    content: "";
+    display: inline-block;
+    height: 0;
+    border-top: 1px solid #e0e0e0;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 16px
+}
+
+.slider .end i {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    color: #aaa;
+    border: 1px solid #bbb;
+    padding: 3px 5px;
+    line-height: 18px;
+    border-radius: 16px;
+    background-color: #fff;
+    position: relative
+}
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑";
+    margin:0;
+    padding: 0;
+}

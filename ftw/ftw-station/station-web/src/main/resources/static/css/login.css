@@ -1,0 +1,94 @@
+
+/*@keyframes cc{*/
+    /*0%{opacity: 0.4;transform: scale(0.1) ;top: -500px;}*/
+    /*50%{opacity: 0.4;transform: scale(0.1) rotateX(90deg);top: -50px;}*/
+    /*100%{opacity: 1;transform: scale(1) rotateX(0deg);top: 0;}*/
+/*}*/
+
+/*@media only screen and (max-width: 500px) {*/
+    /*.login{*/
+        /*width: 95%!important;*/
+    /*}*/
+    /*.sr{*/
+        /*padding:30px 70px!important;*/
+    /*}*/
+/*}*/
+
+html,body{
+    height:100%;
+    width:100%;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    background: #f9f9f9;
+    color:#222222;
+    background: url(/images/loginbg1.jpg) no-repeat center center;
+    background-size:1920px 1000px;
+    perspective:500px;
+}
+.login{
+    width: 450px;
+    position: relative;
+    top: 0;
+    margin: 15% auto;
+    background: rgba(255,255,255,1);
+    border-radius: 100%;
+    animation: cc 4s ease-in-out;
+    border: #999999 2px solid;
+}
+.login header{
+    padding: 10px;
+    border-bottom: 2px solid #999;
+    border-radius: 50%;
+}
+.login header h1{
+    margin:0;
+    padding:0;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+}
+.sr{
+    padding:30px 90px;
+}
+.name{
+    /*position:relative;*/
+    /*margin-bottom:20px;*/
+    /*clear:both;*/
+    /*border:1px solid #27d;*/
+    /*width: 100%;*/
+    /*height: 40px;*/
+}
+.name label{
+    position: absolute;
+    color: #27d;
+    top: 10px;
+    left: 10px;
+}
+.name_inp{
+    padding-left: 34px;
+    height: 38px;
+    line-height: 38px;
+    line-height: 36px\9;
+    border: none;
+    background-color: #fff;
+    width: 100%;
+    outline: none;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.dl{
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    background: #e89326;
+    line-height: 40px;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    border: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+

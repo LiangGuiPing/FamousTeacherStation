@@ -1,0 +1,12 @@
+com\ftw\service\impl\AdmUserModulesServiceImpl.class
+com\ftw\service\impl\AdmPermissionServiceImpl.class
+com\ftw\service\AdmUserService.class
+com\ftw\service\AdmModulesService.class
+com\ftw\service\AdmUserModulesService.class
+com\ftw\service\impl\AdmUserServiceImpl.class
+com\ftw\service\impl\AdmModulesServiceImpl.class
+com\ftw\service\AdmRolesService.class
+com\ftw\service\impl\AdmRolesServiceImpl.class
+com\ftw\service\impl\AdmUserRoleServiceImpl.class
+com\ftw\service\AdmPermissionService.class
+com\ftw\service\AdmUserRoleService.class

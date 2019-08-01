@@ -1,0 +1,62 @@
+.clearfix:before,.clearfix:after{
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}
+.header{
+    background:  #3f3f3f;
+}
+.logo{
+    float: left;
+}
+.header-nav{
+    margin-left: 75px;
+    float: left;
+}
+.header-right{
+    float: right;
+}
+.layui-nav{
+    background: #3f3f3f;
+}
+.layui-nav-tree .layui-nav-item>a{
+    color: #fff;
+    background: #108de9;
+}
+.layui-nav-tree .layui-nav-item a{
+    transition: none;
+}
+.layui-nav-tree .layui-nav-item>a:hover{
+    background-color: #108de9;
+    color: #fff;
+}
+.layui-nav-itemed > .layui-nav-child{
+    background-color: #3f3f3f !important;
+}
+.layui-nav-tree .layui-nav-child a{
+    padding: 0 20px 0 30px;
+}
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #108de9;
+}
+.layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this {
+    background-color: #333232;
+    color: #108de9
+}
+.container{
+    margin-top: 10px;
+}
+.nav-container{
+    width: 200px;
+    float: left;
+    height: calc(100% - 72px);
+    background: #3f3f3f;
+}
+.content{
+    overflow: hidden;
+}

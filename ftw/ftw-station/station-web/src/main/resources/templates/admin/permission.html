@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>名师工作站</title>
+    <link rel="stylesheet" href="/css/boostrap.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="/css/layer.css" />
+    <link rel="stylesheet" href="/css/modules.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+    <script src="https://cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.5.17/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.22.2/locale/zh-cn.js"></script>
+    <script src="https://cdn.staticfile.org/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/tools.js"></script>
+    <script src="/js/pagervue.js"></script>
+    <script src="/js/layer.js"></script>
+    <script src="/plugins/laydate/laydate.js"></script>
+</head>
+
+<body>
+
+<div class="main-container" id="vueapp">
+    <div class="home">
+        <ul class="home-list">
+            <li>权限管理列表</li>
+        </ul>
+    </div>
+
+    <div class="main-cont">
+        <form class="form-inline">
+
+            <div class="form-group">
+                <select class="form-control" id="roleIds" name="roleIds">
+                    <option value="-99" disabled selected style='display:none'>请选择角色</option>
+                    <option v-for="(item,index) in roleLists" :value="item.id">{{ item.rolename }}</option>
+                </select>
+
+                <input type="text" class="form-control" id="permissionName" placeholder="按权限名称查询"
+                       th:value="${permissionName}"/>
+            </div>
+            <button type="button" class="btn btn-info btn-space msearch" v-on:click="search">查询</button>
+            <a href="/permission/showAddEditPermission" class="btn btn-info addbtn">新增</a>
+        </form>
+        <div id="dataListPanel" class="table-responsive" style="margin-top: 15px">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>角色</th>
+                    <th>权限</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item,index) in dataList">
+                    <td>{{item.permissionId}}</td>
+                    <td>{{item.roleName}}</td>
+                    <td>{{item.permissionName}}</td>
+                    <td>{{item.permissionDesc}}</td>
+                    <td>
+                        <a v-bind:href="'/permission/showAddEditPermission/'+item.permissionId" class="btn btn-primary">编辑</a>
+                        <button type="button" class="btn btn-danger" v-on:click="deletem(item.permissionId)">删除
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page-bar">
+            <ul>
+                <li><a>共（{{total}}）条记录</a></li>
+                <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
+                <li v-if="cur==1"><a class="banclick">上一页</a></li>
+                <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
+                    <a v-on:click="btnClick(index)">{{ index }}</a>
+                </li>
+                <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li>
+                <li v-if="cur == all"><a class="banclick">下一页</a></li>
+                <li><a>共<i>{{all}}</i>页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/modules.css"/>
+<link rel="stylesheet" href="/css/paging.css"/>
+<script src="/viewjs/login/permission.js"></script>
+
+</body>
+</html>

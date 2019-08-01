@@ -1,0 +1,106 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>名师工作站-登录</title>
+    <link rel="stylesheet" href="/css/login.css"/>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/tools.js"></script>
+    <script type="application/javascript" th:inline="javascript">
+        if(parent.document.getElementById("nav"))
+        {
+        	parent.location.href = "/login";
+        }
+        var admuser = [[${admuser}]];
+        if(admuser!=null)
+        {
+            var loginname = admuser.loginname;
+            if(null != loginname && "" != loginname && undefined != loginname)
+            {
+                parent.location.href = "/home";
+            }
+        }
+    </script>
+</head>
+
+<body style="margin: 0px">
+<div style="height:1px;"></div>
+<div class="login">
+    <header>
+        <h1>名师工作站管理系统</h1>
+    </header>
+    <div class="sr">
+        <form>
+            <div class="name">
+                <input type="text" placeholder="这里输入登录名" class="name_inp" id="loginName" name="loginName"
+                       onkeydown="keySubmit(event);" autocomplete="off">
+            </div>
+            <div class="name">
+                <label>
+                    <i class="sublist-icon glyphicon glyphicon-pencil"></i>
+                </label>
+                <input type="password" placeholder="这里输入登录密码" class="name_inp" id="user_password" name="password"
+                       onkeydown="keySubmit(event);" autocomplete="off">
+            </div>
+            <p class="text-danger" id="info_error">手机号或密码有误，请重新输入！</p>
+            <a class="dl" type="button" id="login_submit">登录</a>
+        </form>
+    </div>
+</div>
+<script>
+    function keySubmit(e)
+    {
+        var evt = window.event || e;
+        if (evt.keyCode == 13)
+        {
+            $("#login_submit").click();
+        }
+    }
+    $(function () {
+        $('#info_error').hide();
+
+        $("#login_submit").click(function () {
+            var m = $("#loginName").val().trim();
+            if (IsEmpty(m)) {
+                $('#info_error').text('请输入登录名');
+                $('#info_error').show();
+                return false;
+            }
+            var p = $("#user_password").val().trim();
+            if (IsEmpty(p)) {
+                $('#info_error').text('请输入密码');
+                $('#info_error').show();
+                return false;
+            }
+            $("#login_submit").html("登录中...");
+            $.ajax({
+                type: "post",
+                url: "/do",
+                data: {
+                    loginName: m,
+                    password: p,
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        window.setTimeout(function () {
+                            location.href = "/home";
+                        },500)
+                    }
+                    else {
+                        $("#login_submit").html("登录");
+                        $('#info_error').text(data.msg);
+                        $('#info_error').show();
+                    }
+                },
+                error: function (data) {
+                    alert('网络异常，查询失败');
+                    $("#login_submit").html("登录");
+                }
+            });
+
+        });
+
+    })
+</script>
+</body>
+</html>
